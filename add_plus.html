@@ -64,9 +64,8 @@
             display: none;
         }
 
-        #welcome-logo {
-            width: 200px;
-            margin-bottom: 20px;
+        #addPLU {
+            height: 100px !important;
         }
     </style>
 </head>
@@ -75,19 +74,13 @@
 <header id="app-title">EdgiMart Phone Pal</header>
 
 <main>
-    <img id="welcome-logo" src="./em-logo-colour.png" alt="Welcome Logo">
-    <h1 id="welcome-hdr">Welcome to EdgiMart's Phone Pal</h1>
-    <h4 id="welcome-msg">You can act as a smart shopper, a shop attendant, of modify scale settings directly!</h4>
-    <div id="shop-content" class="hidden">Shop Content</div>
-    <div id="monitor-content" class="hidden">Monitor Content</div>
-    <div id="settings-content" class="hidden">Settings Content</div>
+    <div id="shop-content" class="hidden">Add PLUs to scale</div>
+<!--    <button id="addPLU">Add PLU</button>-->
 </main>
 
 <footer>
     <div class="buttons">
-        <button onclick="switchContext('shop')">SHOP</button>
-        <button onclick="switchContext('monitor')">MONITOR</button>
-        <button onclick="switchContext('settings')">SETTINGS</button>
+        <button onclick="switchContext('shop')">ADD all PLUs</button>
     </div>
 </footer>
 
@@ -95,17 +88,9 @@
     function switchContext(context) {
         const appTitle = document.getElementById('app-title');
         const allContent = document.querySelectorAll('main > div');
-        const logo = document.getElementById('welcome-logo');
-        const welcomeHdr = document.getElementById('welcome-hdr');
-        const welcomeMsg = document.getElementById('welcome-msg');
 
-        // Hide all content and logo by default
         allContent.forEach(content => content.classList.add('hidden'));
-        logo.classList.add('hidden');
-        welcomeHdr.classList.add('hidden');
-        welcomeMsg.classList.add('hidden');
 
-        // Show the selected context's content
         const contentElement = document.getElementById(`${context}-content`);
         if (contentElement) {
             contentElement.classList.remove('hidden');
