@@ -81,9 +81,75 @@
         <img id="welcome-logo" src="./em-logo-colour.png" alt="Welcome Logo">
         <h1 id="welcome-hdr">Welcome to EdgiMart's Phone Pal</h1>
         <h4 id="welcome-msg">You can act as a smart shopper, a shop attendant, of modify scale settings directly!</h4>
-        <div id="shop-content" class="hidden">Shop Content</div>
+        <div id="shop-content" class="hidden">
+            <!--            Shop Content-->
+            <h1>Shopping list</h1>
+<!--            <p>Happy shopping!</p>-->
+            <div class="dropdown">
+                <div class="dropdown-header dh-sl" onclick="toggleDropdown(this)">
+                    <span class="icon">&#10010;</span>
+                    <span class="title">Fairtrade bananas</span>
+                    <span class="arrow">\/<span>
+                </div>
+                <div class="dropdown-content dc-sl">
+                    <img class="alertImg" src="./img/BananasFairtrade.png" alt="Image" />
+                    <div class="attributes">
+                        <div><strong>Weight:</strong> 0.3kg</div>
+                        <div><strong>Price:</strong> £1.40</div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="dropdown">
+                <div class="dropdown-header dh-sl" onclick="toggleDropdown(this)">
+                    <span class="icon">&#10010;</span>
+                    <span class="title">Avocado</span>
+                    <span class="arrow">\/<span>
+                </div>
+                <div class="dropdown-content dc-sl">
+                    <img class="alertImg" src="./img/Avocado.png" alt="Image" />
+                    <div class="attributes">
+                        <div><strong>Weight:</strong> 0.2kg</div>
+                        <div><strong>Price:</strong> £1.36</div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="dropdown">
+                <div class="dropdown-header dh-sl" onclick="toggleDropdown(this)">
+                    <span class="icon">&#10010;</span>
+                    <span class="title">Ginger</span>
+                    <span class="arrow">\/<span>
+                </div>
+                <div class="dropdown-content dc-sl">
+                    <img class="alertImg" src="./img/Ginger.png" alt="Image" />
+                    <div class="attributes">
+                        <div><strong>Weight:</strong> 0.156kg</div>
+                        <div><strong>Price:</strong> £1.89</div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="dropdown">
+                <div class="dropdown-header dh-sl" onclick="toggleDropdown(this)">
+                    <span class="icon">&#10010;</span>
+                    <span class="title">Strawberries</span>
+                    <span class="arrow">\/<span>
+                </div>
+                <div class="dropdown-content dc-sl">
+                    <img class="alertImg" src="./img/Strawberry.png" alt="Image" />
+                    <div class="attributes">
+                        <div><strong>Weight:</strong> 0.5kg</div>
+                        <div><strong>Price:</strong> £2.50</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div id="monitor-content" class="hidden">
             <!--        Monitor Content-->
+            <h1>Attendant App</h1>
+            <p>Approve or deny suspicious transactions</p>
             <div class="dropdown">
                 <div class="dropdown-header" onclick="toggleDropdown(this)">
                     <span class="icon">❗</span>
@@ -138,6 +204,21 @@
                 </div>
             </div>
             <style>
+                .dh-sl {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 10px;
+                    background-color: #f9f9f9 !important;
+                    cursor: pointer;
+                }
+
+                .dc-sl {
+                    display: none;
+                    padding: 10px;
+                    background-color: #fff !important;
+                }
+
                 .dropdown {
                     border: 1px solid #ccc;
                     border-radius: 5px;
@@ -203,7 +284,11 @@
                 }
             </script>
         </div>
-        <div id="settings-content" class="hidden">Settings Content</div>
+        <div id="settings-content" class="hidden">
+<!--            Settings Content-->
+        <h1>Settings</h1>
+<!--        <p>Modify scale settings</p>-->
+        </div>
     </main>
 
     <footer>
