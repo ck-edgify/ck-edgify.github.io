@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <title>EdgiMart Phone Pal</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             margin: 0;
@@ -70,49 +72,171 @@
         }
     </style>
 </head>
+
 <body>
 
-<header id="app-title">EdgiMart Phone Pal</header>
+    <header id="app-title">EdgiMart Phone Pal</header>
 
-<main>
-    <img id="welcome-logo" src="./em-logo-colour.png" alt="Welcome Logo">
-    <h1 id="welcome-hdr">Welcome to EdgiMart's Phone Pal</h1>
-    <h4 id="welcome-msg">You can act as a smart shopper, a shop attendant, of modify scale settings directly!</h4>
-    <div id="shop-content" class="hidden">Shop Content</div>
-    <div id="monitor-content" class="hidden">Monitor Content</div>
-    <div id="settings-content" class="hidden">Settings Content</div>
-</main>
+    <main>
+        <img id="welcome-logo" src="./em-logo-colour.png" alt="Welcome Logo">
+        <h1 id="welcome-hdr">Welcome to EdgiMart's Phone Pal</h1>
+        <h4 id="welcome-msg">You can act as a smart shopper, a shop attendant, of modify scale settings directly!</h4>
+        <div id="shop-content" class="hidden">Shop Content</div>
+        <div id="monitor-content" class="hidden">
+            <!--        Monitor Content-->
+            <div class="dropdown">
+                <div class="dropdown-header" onclick="toggleDropdown(this)">
+                    <span class="icon">❗</span>
+                    <span class="title">Mislabel #1 - Scale #3</span>
+                    <span class="arrow">\/<span>
+                </div>
+                <div class="dropdown-content">
+                    <img class="alertImg" src="./img/Lime.png" alt="Image" />
+                    <div class="attributes">
+                        <div><strong>Label:</strong> Lemon</div>
+                        <div><strong>Price:</strong> £1.36</div>
+                        <div><strong>Suspected Label:</strong> Lime</div>
+                        <div><strong>Suspected Value:</strong> £2.48</div>
+                        <button class="adBtn">Approve</button><button class="adBtn">Deny</button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="dropdown">
+                <div class="dropdown-header" onclick="toggleDropdown(this)">
+                    <span class="icon">❗</span>
+                    <span class="title">Mislabel #2 - SCO #5</span>
+                    <span class="arrow">\/<span>
+                </div>
+                <div class="dropdown-content">
+                    <img class="alertImg" src="./img/OnionsRed.png" alt="Image" />
+                    <div class="attributes">
+                        <div><strong>Label:</strong> White Onion</div>
+                        <div><strong>Price:</strong> £0.59</div>
+                        <div><strong>Suspected Label:</strong> Red Onion</div>
+                        <div><strong>Suspected Value:</strong> £0.59</div>
+                        <button class="adBtn">Approve</button><button class="adBtn">Deny</button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="dropdown">
+                <div class="dropdown-header" onclick="toggleDropdown(this)">
+                    <span class="icon">❗</span>
+                    <span class="title">Barcoded item - SCO #2</span>
+                    <span class="arrow">\/<span>
+                </div>
+                <div class="dropdown-content">
+                    <img class="alertImg" src="./img/bacon.png" alt="Image" />
+                    <div class="attributes">
+                        <div><strong>Label:</strong> Carrots</div>
+                        <div><strong>Price:</strong> £0.63</div>
+                        <div><strong>Suspected Label:</strong> Bacon</div>
+                        <div><strong>Suspected Value:</strong> £5.44</div>
+                        <button class="adBtn">Approve</button><button class="adBtn">Deny</button>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .dropdown {
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    width: 300px;
+                    overflow: hidden;
+                }
 
-<footer>
-    <div class="buttons">
-        <button onclick="switchContext('shop')">SHOP</button>
-        <button onclick="switchContext('monitor')">MONITOR</button>
-        <button onclick="switchContext('settings')">SETTINGS</button>
-    </div>
-</footer>
+                .dropdown-header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 10px;
+                    background-color: #fff5db;
+                    cursor: pointer;
+                }
 
-<script>
-    function switchContext(context) {
-        const appTitle = document.getElementById('app-title');
-        const allContent = document.querySelectorAll('main > div');
-        const logo = document.getElementById('welcome-logo');
-        const welcomeHdr = document.getElementById('welcome-hdr');
-        const welcomeMsg = document.getElementById('welcome-msg');
+                .icon {
+                    margin-right: 10px;
+                    color: #ff5722;
+                    font-size: 16px;
+                }
 
-        // Hide all content and logo by default
-        allContent.forEach(content => content.classList.add('hidden'));
-        logo.classList.add('hidden');
-        welcomeHdr.classList.add('hidden');
-        welcomeMsg.classList.add('hidden');
+                .title {
+                    flex-grow: 1;
+                    text-align: center;
+                }
 
-        // Show the selected context's content
-        const contentElement = document.getElementById(`${context}-content`);
-        if (contentElement) {
-            contentElement.classList.remove('hidden');
-            appTitle.textContent = context.charAt(0).toUpperCase() + context.slice(1);
+                .arrow {
+                    font-size: 14px;
+                    transform: rotate(0deg);
+                    transition: transform 0.3s;
+                }
+
+                .dropdown-content {
+                    display: none;
+                    padding: 10px;
+                    background-color: #fffaed;
+                }
+
+                .dropdown-content .img {
+                    width: 100%;
+                    height: auto;
+                    margin-bottom: 10px;
+                }
+
+                .dropdown-content .attributes div {
+                    margin-bottom: 5px;
+                }
+
+                .dropdown.open .dropdown-content {
+                    display: block;
+                }
+
+                .dropdown.open .arrow {
+                    transform: rotate(180deg);
+                }
+            </style>
+
+            <script>
+                function toggleDropdown(element) {
+                    const dropdown = element.parentElement;
+                    dropdown.classList.toggle('open');
+                }
+            </script>
+        </div>
+        <div id="settings-content" class="hidden">Settings Content</div>
+    </main>
+
+    <footer>
+        <div class="buttons">
+            <button onclick="switchContext('shop')">SHOP</button>
+            <button onclick="switchContext('monitor')">MONITOR</button>
+            <button onclick="switchContext('settings')">SETTINGS</button>
+        </div>
+    </footer>
+
+    <script>
+        function switchContext(context) {
+            const appTitle = document.getElementById('app-title');
+            const allContent = document.querySelectorAll('main > div');
+            const logo = document.getElementById('welcome-logo');
+            const welcomeHdr = document.getElementById('welcome-hdr');
+            const welcomeMsg = document.getElementById('welcome-msg');
+
+            // Hide all content and logo by default
+            allContent.forEach(content => content.classList.add('hidden'));
+            logo.classList.add('hidden');
+            welcomeHdr.classList.add('hidden');
+            welcomeMsg.classList.add('hidden');
+
+            // Show the selected context's content
+            const contentElement = document.getElementById(`${context}-content`);
+            if (contentElement) {
+                contentElement.classList.remove('hidden');
+                appTitle.textContent = context.charAt(0).toUpperCase() + context.slice(1);
+            }
         }
-    }
-</script>
+    </script>
 
 </body>
+
 </html>
